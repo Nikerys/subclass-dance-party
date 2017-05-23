@@ -1,6 +1,6 @@
-var SquareDancer = function(top, left, timeBetweenSteps) {
+var HopefulDancer = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
-  // $('#square').slideUp();
+  // $('#Hopeful').slideUp();
   // this.top = top;
   // this.left = left;
   // this.timeBetweenSteps = timeBetweenSteps;
@@ -12,7 +12,7 @@ var SquareDancer = function(top, left, timeBetweenSteps) {
   //this.oldStep = Dancer.prototype.step;
 
   // this.$node.css({backgroundColor: 'blue'});
-  //$('span.dancer').css({color: 'blue'});
+  //$('span.dancer').css({color: 'yellow'});
   
   //$('span.dancer').append('<img src="http://time-static-shared.s3-website-us-east-1.amazonaws.com/interactives/order_presidents_game/img/obama.png');
 
@@ -20,12 +20,12 @@ var SquareDancer = function(top, left, timeBetweenSteps) {
  // this.$node.css({backgroundColor: 'blue'});
 
 
-  this.$node.css({color: 'blue'});
+  this.$node.css({color: 'yellow'});
 };
 
-SquareDancer.prototype = Object.create(Dancer.prototype);
-SquareDancer.prototype.constructor = SquareDancer;
-SquareDancer.prototype.step = function() {
+HopefulDancer.prototype = Object.create(Dancer.prototype);
+HopefulDancer.prototype.constructor = HopefulDancer;
+HopefulDancer.prototype.step = function() {
   // call the old version of step at the beginning of any call to this new version of step
   //console.log(Dancer.prototype.step.call(this));
   Dancer.prototype.step.call(this);
@@ -33,22 +33,4 @@ SquareDancer.prototype.step = function() {
   // See http://api.jquery.com/category/effects/ for this and
   // other effects you can use on a jQuery-wrapped html tag.
   this.$node.toggle();
-};
-
-SquareDancer.prototype.lineUp = function() {
-  console.log(window.dancers.length);  
-  for (var i = 0; i < window.dancers.length; i++) {
-    var x = i * 160;
-    x = x.toString();
-    x = x + 'px';
-    window.dancers[i].css({
-      'position': 'absolute',
-      'width': '170px',
-      'height': '170px',
-      'border-radius': '10px',
-      'left': x,
-      'top': '100px'
-    });
-  }
-
 };
