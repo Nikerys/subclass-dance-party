@@ -3,13 +3,17 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  background-image: url('http://i.vimeocdn.com/video/460516322_1280x720.jpg');
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
 .title, .addDancerButton{
+  padding:5px 12px;
+  float:right;
+}
+.title, .addSquareButton{
   padding:5px 12px;
   float:right;
 }
@@ -20,8 +24,28 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
-.dancer{
+
+.dancer {
+  border:10px solid;
+  border-radius:10px;
+  position:absolute;
+
+}
+
+/*.squareDancer {
   border:10px solid red;
   border-radius:10px;
   position:absolute;
-}
+}*/
+
+/*.addSquareButton{
+  border:10px solid red;
+  border-radius:10px;
+  position:absolute;
+}*/
+
+/*#blinky{
+  border:10px solid red;
+  border-radius:10px;
+  position:absolute;
+}*/

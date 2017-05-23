@@ -1,5 +1,6 @@
-var BlinkyDancer = function(top, left, timeBetweenSteps) {
+var SquareDancer = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
+  // $('#square').slideUp();
   // this.top = top;
   // this.left = left;
   // this.timeBetweenSteps = timeBetweenSteps;
@@ -10,15 +11,19 @@ var BlinkyDancer = function(top, left, timeBetweenSteps) {
   //console.log(this);
   //this.oldStep = Dancer.prototype.step;
 
+  // this.$node.css({backgroundColor: 'blue'});
+
+  $('#square').append('<img src="http://time-static-shared.s3-website-us-east-1.amazonaws.com/interactives/order_presidents_game/img/obama.png');
 
 
 
-  this.$node.css({color: 'red'});
+
+  //this.$node.css({color: 'blue'});
 };
 
-BlinkyDancer.prototype = Object.create(Dancer.prototype);
-BlinkyDancer.prototype.constructor = BlinkyDancer;
-BlinkyDancer.prototype.step = function() {
+SquareDancer.prototype = Object.create(Dancer.prototype);
+SquareDancer.prototype.constructor = SquareDancer;
+SquareDancer.prototype.step = function() {
   // call the old version of step at the beginning of any call to this new version of step
   //console.log(Dancer.prototype.step.call(this));
   Dancer.prototype.step.call(this);
