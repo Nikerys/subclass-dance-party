@@ -20,7 +20,7 @@ var SquareDancer = function(top, left, timeBetweenSteps) {
  // this.$node.css({backgroundColor: 'blue'});
 
 
-  this.$node.css({color: 'blue'});
+  //this.$node.css({color: 'blue'});
 };
 
 SquareDancer.prototype = Object.create(Dancer.prototype);
@@ -32,23 +32,88 @@ SquareDancer.prototype.step = function() {
   // toggle() is a jQuery method to show/hide the <span> tag.
   // See http://api.jquery.com/category/effects/ for this and
   // other effects you can use on a jQuery-wrapped html tag.
-  this.$node.toggle();
+  //this.$node.toggle();
 };
 
 SquareDancer.prototype.lineUp = function() {
-  console.log(window.dancers.length);  
-  for (var i = 0; i < window.dancers.length; i++) {
+  //console.log(window.dancers.length);  
+  for (var i = 0; i < window.squareDancers.length; i++) {
+    var x = i * 160 + 100;
+    x = x.toString();
+    x = x + 'px';
+    window.squareDancers[i].animate({
+      'position': 'absolute',
+      'width': '340px',
+      'height': '340px',
+      'border-radius': '10px',
+      'left': x,
+      'top': '550px'
+    }, 1000);
+  }
+};
+
+SquareDancer.prototype.interact = function() {
+  if ((window.squareDancers.length / 2) % 1 !== 0) {
+    window.squareDancers[(Math.floor(window.squareDancers.length / 2))].animate({
+      'position': 'absolute',
+      'width': '340px',
+      'height': '340px',
+      'border-radius': '10px',
+      'left': '540px',
+      'top': '960px'
+    }, 1000);
+  }
+
+  for (var i = 0; i < (Math.floor(window.squareDancers.length / 2)); i++) {
+    console.log(i);
     var x = i * 160;
     x = x.toString();
     x = x + 'px';
-    window.dancers[i].css({
+    window.squareDancers[i].animate({
       'position': 'absolute',
-      'width': '170px',
-      'height': '170px',
+      'width': '340px',
+      'height': '340px',
       'border-radius': '10px',
       'left': x,
-      'top': '100px'
-    });
+      'top': x
+    }, 1000);
   }
 
+  for (var j = (Math.ceil(window.squareDancers.length / 2)); j < window.squareDancers.length; j++) {
+    console.log(j);
+    var y = j * 160;
+    y = y.toString();
+    y = y + 'px';
+    window.squareDancers[j].animate({
+      'position': 'absolute',
+      'width': '340px',
+      'height': '340px',
+      'border-radius': '10px',
+      'left': y,
+      'top': y
+    }, 1000);
+  }
+  
+
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,8 @@
 $(document).ready(function() {
   window.dancers = [];
+  window.blinkyDancers = [];
+  window.squareDancers = [];
+  window.hopefulDancers = [];
 
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -29,7 +32,7 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
-    window.dancers.push(dancer.$node);
+    window.blinkyDancers.push(dancer.$node);
   });
 
   $('.addSquareButton').on('click', function(event) {
@@ -60,7 +63,7 @@ $(document).ready(function() {
     );
       
     $('body').append(squareDancer.$node);
-    window.dancers.push(squareDancer.$node);
+    window.squareDancers.push(squareDancer.$node);
   });
 
 
@@ -92,14 +95,22 @@ $(document).ready(function() {
     );
       
     $('body').append(hopefulDancer.$node);
-    window.dancers.push(hopefulDancer.$node);
+    window.hopefulDancers.push(hopefulDancer.$node);
 
   });
 
   $('#linebtn').on('click', function(event) {
     console.log(window.dancers);
+    BlinkyDancer.prototype.lineUp();
     SquareDancer.prototype.lineUp();
-    
+    HopefulDancer.prototype.lineUp();
+  });
+
+  $('#interactbtn').on('click', function(event) {
+    // console.log(window.dancers);
+    // BlinkyDancer.prototype.lineUp();
+    SquareDancer.prototype.interact();
+    // HopefulDancer.prototype.lineUp();
   });
 });
 

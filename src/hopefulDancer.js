@@ -20,7 +20,6 @@ var HopefulDancer = function(top, left, timeBetweenSteps) {
  // this.$node.css({backgroundColor: 'blue'});
 
 
-  this.$node.css({color: 'yellow'});
 };
 
 HopefulDancer.prototype = Object.create(Dancer.prototype);
@@ -32,5 +31,25 @@ HopefulDancer.prototype.step = function() {
   // toggle() is a jQuery method to show/hide the <span> tag.
   // See http://api.jquery.com/category/effects/ for this and
   // other effects you can use on a jQuery-wrapped html tag.
-  this.$node.toggle();
+  //this.$node.toggle();
 };
+
+HopefulDancer.prototype.lineUp = function() {
+  //console.log(window.dancers.length);  
+  for (var i = 0; i < window.hopefulDancers.length; i++) {
+    var x = i * 160 + 300;
+    x = x.toString();
+    x = x + 'px';
+    window.hopefulDancers[i].animate({
+      'position': 'absolute',
+      'width': '170px',
+      'height': '170px',
+      'border-radius': '10px',
+      'left': x,
+      'top': '530px'
+    }, 1000);
+  }
+
+};
+
+
